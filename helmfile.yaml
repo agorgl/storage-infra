@@ -1,0 +1,16 @@
+repositories:
+  # MinIO charts, https://github.com/minio/minio/tree/master/helm/minio
+  - name: minio
+    url: https://charts.min.io/
+
+namespace: storage
+
+releases:
+  # MinIO
+  - name: minio
+    chart: minio/minio
+    values:
+      - values/minio.yaml.gotmpl
+
+values:
+  - .env.{{ .Environment.Name }}.yaml
