@@ -1,4 +1,7 @@
 repositories:
+  # Registry chart, https://github.com/twuni/docker-registry.helm
+  - name: twuni
+    url: https://helm.twun.io
   # MinIO charts, https://github.com/minio/minio/tree/master/helm/minio
   - name: minio
     url: https://charts.min.io/
@@ -6,6 +9,12 @@ repositories:
 namespace: storage
 
 releases:
+  # Registry
+  - name: registry
+    chart: twuni/docker-registry
+    values:
+      - values/registry.yaml.gotmpl
+
   # MinIO
   - name: minio
     chart: minio/minio

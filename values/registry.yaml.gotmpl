@@ -1,0 +1,13 @@
+nameOverride: registry
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+  hosts:
+    - registry.{{ .Values.domain }}
+
+persistence:
+  enabled: true
+  deleteEnabled: true
